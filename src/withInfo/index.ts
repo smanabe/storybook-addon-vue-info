@@ -22,6 +22,8 @@ import getJSXFromRenderFn from '../utils/getJSXFromRenderFn'
 import InfoView from '../components/InfoView.vue'
 import lookupComponent from '../lookupComponent'
 
+import getListInfo from '../getListsInfo'
+
 const renderer = new marked.Renderer()
 
 renderer.code = (code, lang) =>
@@ -114,6 +116,7 @@ function withInfo(options: Partial<InfoAddonOptions> | string): WithInfo {
             componentDetails,
             showHeader: opts.header,
             showSource: opts.source,
+            showLists: opts.lists,
             userStyle: opts.styles
           },
           scopedSlots: {

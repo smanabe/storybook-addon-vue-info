@@ -2,6 +2,7 @@
 import SectionTitle from './SectionTitle.vue'
 import InfoDescription from './InfoDescription.vue'
 import InfoHeader from './InfoHeader.vue'
+import InfoList from './InfoList.vue'
 import PropsTable from './PropsTable.vue'
 import StorySource from './StorySource.vue'
 
@@ -9,9 +10,10 @@ export default {
   components: {
     InfoDescription,
     InfoHeader,
+    InfoList,
     PropsTable,
     SectionTitle,
-    StorySource
+    StorySource,
   },
   props: {
     storyKind: {
@@ -45,6 +47,10 @@ export default {
       required: true
     },
     showSource: {
+      type: Boolean,
+      required: true
+    },
+    showLists: {
       type: Boolean,
       required: true
     },
@@ -87,7 +93,13 @@ export default {
       :lang="lang"
     />
 
-    <section-title :style="userStyle.propTableHead">Props</section-title>
+    <info-list
+      v-if="showLists"
+      :user-style="userStyle.lists"
+      :list-props="componentDetails.propsList"
+    />
+
+    <section-title :style="userStyle.propTableHead" style="clear:left">Props</section-title>
     <props-table
       v-for="detail in componentDetails"
       :key="detail.info.name"

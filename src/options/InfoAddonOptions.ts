@@ -25,6 +25,11 @@ interface VueInfoAddonOptions {
   source: boolean
 
   /**
+   * Lists the source of lists Component
+   */
+  lists: boolean
+
+  /**
    * Overrides styles of addon.
    */
   styles: {
@@ -36,6 +41,9 @@ interface VueInfoAddonOptions {
       body?: InlineStyle
     }
     source?: {
+      h1?: InlineStyle
+    }
+    lists?: {
       h1?: InlineStyle
     }
     propTableHead?: InlineStyle

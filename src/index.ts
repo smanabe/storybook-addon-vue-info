@@ -4,6 +4,7 @@ import { Addon, StoryDecorator } from '@storybook/vue'
 
 import { RuntimeComponentOptions } from './types/VueRuntime'
 
+import getListsInfo from './getListsInfo'
 import getPropsInfoList from './getPropsInfoList'
 import { defaultOptions, InfoAddonOptions } from './options'
 import parseStoryComponent from './parseStoryComponent'
